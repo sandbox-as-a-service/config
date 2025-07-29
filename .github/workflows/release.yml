@@ -6,6 +6,9 @@ permissions:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+env:
+  NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }}
+
 on:
   push:
     branches: [main]
@@ -20,30 +23,22 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Enable Corepack & hydrate Yarn 4.6.0
-        run: |
-          corepack enable
-          corepack prepare yarn@stable --activate
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: yarn
-        env:
-          NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }} # Yarn v4 will always load project’s .yarnrc.yml (even just to print its version)
 
       - name: Install dependencies
         run: yarn install
-        env:
-          NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }} # Consider defining at the job level if needed in multiple steps
 
       - name: Build
         run: yarn build
-        env:
-          NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }}
 
       - name: Publish to GitHub Packages
         run: yarn npm publish
         env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use GITHUB_TOKEN for publishing to GitHub Packages as it has package write access
