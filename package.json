@@ -1,7 +1,7 @@
 {
   "name": "@sandbox-as-a-service/config",
   "packageManager": "yarn@4.6.0",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "dependencies": {
     "zod": "^4.0.13"
   },
