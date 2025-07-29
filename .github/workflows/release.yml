@@ -44,6 +44,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }}
 
       - name: Publish to GitHub Packages
-        run: yarn publish
+        run: yarn npm publish
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
