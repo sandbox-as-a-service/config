@@ -25,10 +25,10 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Enable Corepack & hydrate Yarn 4.6.0
+      - name: Enable Corepack & hydrate Yarn
         run: |
           corepack enable
-          corepack prepare yarn@stable --activate
+          corepack prepare yarn@latest --activate
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
