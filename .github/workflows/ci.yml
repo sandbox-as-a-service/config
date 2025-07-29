@@ -27,10 +27,6 @@ jobs:
           corepack enable
           corepack prepare yarn@stable --activate
 
-      - name: Debug yarn after Corepack
-        run: |
-          yarn --version
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
