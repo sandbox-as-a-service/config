@@ -1,0 +1,26 @@
+{
+  "name": "@sandbox-as-a-service/config",
+  "packageManager": "yarn@4.6.0",
+  "version": "0.1.0",
+  "dependencies": {
+    "zod": "^4.0.13"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^24.1.0",
+    "typescript": "^5.8.3"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}
