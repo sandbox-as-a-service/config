@@ -12,7 +12,7 @@ __metadata:
     "@sandbox-as-a-service/types": "npm:1.0.5"
     "@tsconfig/node22": "npm:^22.0.2"
     "@types/node": "npm:^24.1.0"
-    typescript: "npm:^5.8.3"
+    typescript: "npm:^5.8.0"
     zod: "npm:^4.0.13"
   languageName: unknown
   linkType: soft
@@ -40,7 +40,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.8.3":
+"typescript@npm:^5.8.0":
   version: 5.8.3
   resolution: "typescript@npm:5.8.3"
   bin:
@@ -50,7 +50,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.8.0#optional!builtin<compat/typescript>":
   version: 5.8.3
   resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"
   bin:
