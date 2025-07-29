@@ -39,3 +39,5 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
+        env:
+          NPM_TOKEN: ${{ secrets.ORG_PAT }}
