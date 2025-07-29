@@ -36,9 +36,9 @@ jobs:
           node-version: 22
           cache: yarn
         env:
-          NPM_TOKEN: ${{ secrets.ORG_PAT }} # Yarn v4 will always load project’s .yarnrc.yml (even just to print its version)
+          NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }} # Yarn v4 will always load project’s .yarnrc.yml (even just to print its version)
 
       - name: Install dependencies
         run: yarn install
         env:
-          NPM_TOKEN: ${{ secrets.ORG_PAT }} # Consider defining at the job level if needed in multiple steps
+          NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }} # Consider defining at the job level if needed in multiple steps
