@@ -22,6 +22,26 @@ jobs:
         with:
           fetch-depth: 2
 
+          # ── DEBUG: see where yarn is coming from ────────────────────────────
+      - name: Debug yarn before Corepack
+        run: |
+          which yarn
+          yarn --version
+
+      # ── ENABLE Corepack so it can hydrate your packageManager version ──
+      - name: Enable Corepack & hydrate Yarn 4.6.0
+        run: |
+          corepack enable
+          corepack prepare yarn@4.6.0 --activate
+
+      # ── DEBUG: verify Corepack did its job ─────────────────────────────
+      - name: Debug yarn after Corepack
+        run: |
+          which yarn
+          yarn --version
+          echo "shims in cache:"
+          ls ~/.node/corepack/yarn
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
