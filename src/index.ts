@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-// Database configuration schema
+// Database configuration schema!
 export const DatabaseConfigSchema = z.object({
   host: z.string().default("localhost"),
   port: z.number().min(1).max(65535).default(5432),
