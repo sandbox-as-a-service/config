@@ -14,6 +14,9 @@ on:
 
 jobs:
   install:
+    # Skip this entire job when Dependabot opens or updates the PR since it has no access to secrets.
+    if: ${{ github.actor != 'dependabot[bot]' }}
+
     name: Install Dependencies
     runs-on: ubuntu-latest
     steps:
