@@ -6,8 +6,8 @@ permissions:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-env:
-  NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }}
+# env:
+#   NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }}
 
 on:
   push:
