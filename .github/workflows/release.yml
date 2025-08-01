@@ -1,17 +1,26 @@
-name: Publish Package
+name: Release
 
 permissions:
-  contents: read
-  packages: write
+  contents: write # Required to push version bumps
+  packages: write # Required to publish packages
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 env:
-  NPM_TOKEN: ${{ secrets.ORG_PAT_READ_PACKAGES }}
+  NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Which semver segment to bump"
+        required: true
+        default: "patch"
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
 
 jobs:
   release:
@@ -20,11 +29,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       - name: Enable Corepack
         run: corepack enable
+
+      - name: Set up Git identity
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Bump version
+        run: |
+          yarn version ${{ github.event.inputs.bump }}
+
+      - name: Push version bump
+        run: git push origin main
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -40,5 +59,8 @@ jobs:
 
       - name: Publish to GitHub Packages
         run: yarn npm publish
-        env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use GITHUB_TOKEN for publishing to GitHub Packages as it has package write access
+
+      - name: Summary
+        run: |
+          size=$(du -sh dist | cut -f1)
+          echo "## 📦 Published package size: $size" >> $GITHUB_STEP_SUMMARY
