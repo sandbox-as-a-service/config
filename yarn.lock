@@ -9,7 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sandbox-as-a-service/config@workspace:."
   dependencies:
-    "@sandbox-as-a-service/types": "npm:1.0.12"
+    "@sandbox-as-a-service/types": "npm:1.0.22"
     "@tsconfig/node22": "npm:^22.0.2"
     "@types/node": "npm:^24.1.0"
     typescript: "npm:^5.8.0"
@@ -17,10 +17,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sandbox-as-a-service/types@npm:1.0.12":
-  version: 1.0.12
-  resolution: "@sandbox-as-a-service/types@npm:1.0.12::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40sandbox-as-a-service%2Ftypes%2F1.0.12%2F25ccf327ade7a5c56837c2c2f8b119e64844cfae"
-  checksum: 10c0/ccb21d0e0eefe3310edaf94fc83cbbaa66c5fcd81910d8f37fdfbf79ebe9771eeb6b6b3d512c7d776aba4201ecd319f7db9a7980c0ecc2008340d2eeb2f544d9
+"@sandbox-as-a-service/types@npm:1.0.22":
+  version: 1.0.22
+  resolution: "@sandbox-as-a-service/types@npm:1.0.22::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40sandbox-as-a-service%2Ftypes%2F1.0.22%2Fe01a86c19616ba4b618f9251a906d3e389e6a518"
+  checksum: 10c0/08668ec30309c79db45db8977677898fb0d681b6de8343f9eb42254cd228125a2ea012c9e67297aa3a54c23c7af9168f273e482ba4350152ea541914e667e660
   languageName: node
   linkType: hard
 
